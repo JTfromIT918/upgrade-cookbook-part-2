@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Cookbook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Web Development Cookbook</h1>
+
+            <div class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="guides.html">Guides</a>
+            </div>
+        </header>
+
+        <nav class="contents-nav">
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#css">CSS</a></li>
+                <li><a href="#javascript">JavaScript</a></li>
+                <li><a href="#dataTables">Data Tables</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#multimedia">Multimedia</a></li>
+            </ul>
+        </nav>
+
+        <main>
+
+            <section id="introduction">
+                <div class="section-content">
+
+                    <h2>Introduction</h2>
+
+                    <p>
+                        Welcome to the Web Development Cookbook! This site stores useful
+                        code examples and explanations for common web development
+                        techniques that we can return to while building future projects.
+                    </p>
+
+                </div>
+            </section>
+
+            <section id="html">
+                <div class="section-content">
+
+                    <h2>HTML: The Structure</h2>
+
+                    <p>
+                        HTML, or HyperText Markup Language, provides the structure of a
+                        web page. It organizes content into elements such as headings,
+                        paragraphs, navigation areas, main content, and footers.
+                    </p>
+
+                    <h3>Example:</h3>
+
+                    <pre><code>&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Welcome to My Web House&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;p&gt;This is where the main content goes.&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;
+            © &lt;span id="currentYear"&gt;&lt;/span&gt;
+            My Web House
+        &lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;</code></pre>
+
+                    <p>
+                        The example divides the page into a header, main area, and footer.
+                        Semantic elements make the structure easier for developers,
+                        browsers, and assistive technologies to understand.
+                    </p>
+
+                </div>
+            </section>
+
+            <section id="css">
+                <div class="section-content">
+
+                    <h2>CSS: The Style</h2>
+
+                    <p>
+                        CSS, or Cascading Style Sheets, controls how HTML elements appear.
+                        CSS can change colors, fonts, spacing, alignment, layouts, and the
+                        overall presentation of a page.
+                    </p>
+
+                    <h3>Example:</h3>
+
+                    <pre><code>body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+}</code></pre>
+
+                    <p>
+                        Each CSS rule selects part of the HTML and applies presentation
+                        properties to it. Separating CSS from HTML keeps page structure
+                        separate from visual design.
+                    </p>
+
+                </div>
+            </section>
+
+            <section id="javascript">
+                <div class="section-content">
+
+                    <h2>JavaScript: The Functionality</h2>
+
+                    <p>
+                        JavaScript adds behavior and interactivity to a web page. It can
+                        respond to user actions, modify HTML elements, validate data, and
+                        update the page without requiring new HTML to be loaded.
+                    </p>
+
+                    <h3>Example:</h3>
+
+                    <pre><code>function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+}
+
+const themeButton =
+    document.getElementById('themeButton');
+
+themeButton.addEventListener(
+    'click',
+    toggleTheme
+);</code></pre>
+
+                    <p>
+                        The function toggles a CSS class on the body element. An event
+                        listener waits for the user to click the button and then calls
+                        the function.
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- DATA TABLES -->
+            <section id="dataTables">
+                <div class="section-content">
+
+                    <h2>Data Tables</h2>
+
+                    <p>
+                        Data tables organize related information into rows and columns.
+                        They are useful in applications such as dashboards, inventory
+                        systems, financial applications, administration tools, and any
+                        site that needs users to compare large amounts of structured data.
+                    </p>
+
+                    <h3>Responsive Design</h3>
+
+                    <p>
+                        Large tables can extend beyond the width of smaller screens.
+                        Wrapping the table in a scrolling container keeps the layout usable
+                        on phones and tablets without removing data.
+                    </p>
+
+                    <pre><code>.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}</code></pre>
+
+                    <h3>Sorting</h3>
+
+                    <p>
+                        Sorting lets users organize rows according to a selected column.
+                        A click listener can read the values from a column and reorder
+                        the row array alphabetically or numerically.
+                    </p>
+
+                    <pre><code>tableHeaders.forEach((header, columnIndex) =&gt; {
+
+    header.addEventListener('click', () =&gt; {
+
+        rows.sort((rowA, rowB) =&gt; {
+
+            const valueA =
+                rowA.children[columnIndex].textContent;
+
+            const valueB =
+                rowB.children[columnIndex].textContent;
+
+            return valueA.localeCompare(valueB);
+        });
+
+    });
+
+});</code></pre>
+
+                    <h3>Filtering</h3>
+
+                    <p>
+                        Filtering allows users to search a table and display only rows
+                        containing matching text. Converting both values to lowercase
+                        makes the search case-insensitive.
+                    </p>
+
+                    <pre><code>filterInput.addEventListener('input', () =&gt; {
+
+    const filterText =
+        filterInput.value.toLowerCase();
+
+    rows.forEach((row) =&gt; {
+
+        const rowText =
+            row.textContent.toLowerCase();
+
+        row.style.display =
+            rowText.includes(filterText)
+                ? ''
+                : 'none';
+
+    });
+
+});</code></pre>
+
+                    <h3>Pagination</h3>
+
+                    <p>
+                        Pagination divides a large set of rows into smaller groups.
+                        Showing only a few rows at once prevents the page from becoming
+                        excessively long and makes the data easier to scan.
+                    </p>
+
+                    <pre><code>const rowsPerPage = 5;
+let currentPage = 1;
+
+function displayPage() {
+
+    const startIndex =
+        (currentPage - 1) * rowsPerPage;
+
+    const endIndex =
+        startIndex + rowsPerPage;
+
+    rows.forEach((row) =&gt; {
+        row.style.display = 'none';
+    });
+
+    rows
+        .slice(startIndex, endIndex)
+        .forEach((row) =&gt; {
+            row.style.display = '';
+        });
+
+}</code></pre>
+
+                    <h3>Editing</h3>
+
+                    <p>
+                        Editable tables allow users to update data directly inside a
+                        table. The contenteditable attribute provides a simple way to
+                        make an individual cell editable from the browser.
+                    </p>
+
+                    <pre><code>&lt;td contenteditable="true"&gt;
+    Alice
+&lt;/td&gt;</code></pre>
+
+                    <h3>Accessibility</h3>
+
+                    <p>
+                        Accessible tables use semantic elements such as captions, table
+                        headers, and scope attributes. These elements help screen readers
+                        explain how header cells relate to the data.
+                    </p>
+
+                    <pre><code>&lt;table&gt;
+
+    &lt;caption&gt;
+        Employee Information
+    &lt;/caption&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Name&lt;/th&gt;
+            &lt;th scope="col"&gt;Age&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+&lt;/table&gt;</code></pre>
+
+                </div>
+            </section>
+
+            <!-- COMPLEX FORMS -->
+            <section id="forms">
+                <div class="section-content">
+
+                    <h2>Complex Forms</h2>
+
+                    <p>
+                        Complex forms collect several types of information and may include
+                        validation, multiple steps, dynamically generated fields, file
+                        uploads, or autocomplete. They are common in registration systems,
+                        checkout pages, surveys, account settings, and business applications.
+                    </p>
+
+                    <h3>Validation</h3>
+
+                    <p>
+                        Validation checks whether user input follows the required format.
+                        HTML provides built-in validation features, while JavaScript can
+                        add more detailed rules and custom error messages.
+                    </p>
+
+                    <pre><code>const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(emailInput.value)) {
+
+    emailError.textContent =
+        'Enter a valid email address.';
+
+}</code></pre>
+
+                    <h3>Multi-Step</h3>
+
+                    <p>
+                        Multi-step forms divide a long form into smaller sections. The
+                        application can hide the current step and show the next section
+                        when the user clicks a navigation button.
+                    </p>
+
+                    <pre><code>let currentStep = 0;
+
+function showStep(step) {
+
+    const steps =
+        document.querySelectorAll('.form-step');
+
+    steps.forEach((item) =&gt; {
+        item.hidden = true;
+    });
+
+    steps[step].hidden = false;
+
+}</code></pre>
+
+                    <h3>Dynamic Form Fields</h3>
+
+                    <p>
+                        Dynamic fields can be created when users need to enter an unknown
+                        number of values. JavaScript creates a new input element and adds
+                        it to the form when needed.
+                    </p>
+
+                    <pre><code>const newInput =
+    document.createElement('input');
+
+newInput.type = 'text';
+newInput.name = 'additionalItem';
+
+form.appendChild(newInput);</code></pre>
+
+                    <h3>Autocomplete</h3>
+
+                    <p>
+                        Autocomplete suggests possible values while a user types.
+                        HTML's datalist element can provide a simple list of suggested
+                        options without requiring a large amount of JavaScript.
+                    </p>
+
+                    <pre><code>&lt;input
+    type="text"
+    list="cities"
+    name="city"
+&gt;
+
+&lt;datalist id="cities"&gt;
+    &lt;option value="New York"&gt;
+    &lt;option value="London"&gt;
+    &lt;option value="Paris"&gt;
+&lt;/datalist&gt;</code></pre>
+
+                    <h3>File Upload/Preview</h3>
+
+                    <p>
+                        File inputs allow users to select files from their device.
+                        JavaScript can create a temporary object URL so an image can be
+                        previewed before it is uploaded.
+                    </p>
+
+                    <pre><code>fileInput.addEventListener('change', () =&gt; {
+
+    const file = fileInput.files[0];
+
+    if (file) {
+
+        preview.src =
+            URL.createObjectURL(file);
+
+    }
+
+});</code></pre>
+
+                </div>
+            </section>
+
+            <!-- MULTIMEDIA -->
+            <section id="multimedia">
+                <div class="section-content">
+
+                    <h2>Multimedia</h2>
+
+                    <p>
+                        Multimedia elements allow web applications to display video,
+                        audio, graphics, animations, and responsive images. These
+                        features are common in streaming services, educational sites,
+                        games, social media applications, and interactive dashboards.
+                    </p>
+
+                    <h3>Multimedia Elements (Video, Audio, Picture)</h3>
+
+                    <p>
+                        HTML provides native elements for common media types. Video and
+                        audio elements provide media playback while picture can select
+                        different images based on the user's screen.
+                    </p>
+
+                    <pre><code>&lt;video controls&gt;
+    &lt;source
+        src="video.mp4"
+        type="video/mp4"
+    &gt;
+&lt;/video&gt;
+
+&lt;audio controls&gt;
+    &lt;source
+        src="audio.mp3"
+        type="audio/mpeg"
+    &gt;
+&lt;/audio&gt;
+
+&lt;picture&gt;
+    &lt;source
+        media="(min-width: 800px)"
+        srcset="large.jpg"
+    &gt;
+
+    &lt;img
+        src="small.jpg"
+        alt="Example"
+    &gt;
+&lt;/picture&gt;</code></pre>
+
+                    <h3>JavaScript Interaction</h3>
+
+                    <p>
+                        JavaScript can control media using methods provided by the HTML
+                        media API. For example, buttons can call play and pause on a
+                        video element.
+                    </p>
+
+                    <pre><code>const video =
+    document.getElementById('video');
+
+playButton.addEventListener('click', () =&gt; {
+    video.play();
+});
+
+pauseButton.addEventListener('click', () =&gt; {
+    video.pause();
+});</code></pre>
+
+                    <h3>Custom Video Controls</h3>
+
+                    <p>
+                        Custom controls replace or supplement the browser's built-in
+                        controls. JavaScript connects custom buttons to methods such as
+                        play, pause, and volume adjustment.
+                    </p>
+
+                    <pre><code>playPauseButton.addEventListener(
+    'click',
+    () =&gt; {
+
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+
+    }
+);</code></pre>
+
+                    <h3>Adaptive Streaming</h3>
+
+                    <p>
+                        Adaptive streaming changes media quality based on connection
+                        conditions. HLS.js can load an HLS .m3u8 playlist in browsers
+                        that support Media Source Extensions.
+                    </p>
+
+                    <pre><code>if (Hls.isSupported()) {
+
+    const hls = new Hls();
+
+    hls.loadSource(
+        'stream.m3u8'
+    );
+
+    hls.attachMedia(video);
+
+} else if (
+    video.canPlayType(
+        'application/vnd.apple.mpegurl'
+    )
+) {
+
+    video.src = 'stream.m3u8';
+
+}</code></pre>
+
+                    <h3>Audio Visualizations</h3>
+
+                    <p>
+                        The Web Audio API can analyze audio frequencies in real time.
+                        Those values can then be drawn on a canvas to create visual
+                        effects that react to music or other audio.
+                    </p>
+
+                    <pre><code>const audioContext =
+    new AudioContext();
+
+const analyser =
+    audioContext.createAnalyser();
+
+const data =
+    new Uint8Array(
+        analyser.frequencyBinCount
+    );
+
+analyser.getByteFrequencyData(data);</code></pre>
+
+                    <h3>Responsive Images</h3>
+
+                    <p>
+                        Responsive images allow browsers to choose an image appropriate
+                        for the user's screen size or pixel density. The srcset and sizes
+                        attributes provide several image choices.
+                    </p>
+
+                    <pre><code>&lt;img
+    src="small.jpg"
+    srcset="
+        small.jpg 480w,
+        medium.jpg 800w,
+        large.jpg 1200w
+    "
+    sizes="
+        (max-width: 600px) 480px,
+        800px
+    "
+    alt="Responsive example"
+&gt;</code></pre>
+
+                    <h3>Lazy Loading</h3>
+
+                    <p>
+                        Lazy loading delays downloading an image until the user gets
+                        close to it on the page. This can improve initial page loading
+                        performance.
+                    </p>
+
+                    <pre><code>&lt;img
+    src="photo.jpg"
+    loading="lazy"
+    alt="Example photograph"
+&gt;</code></pre>
+
+                    <h3>Canvas</h3>
+
+                    <p>
+                        The canvas element provides a drawing surface controlled through
+                        JavaScript. It can be used for diagrams, games, animations, and
+                        data visualizations.
+                    </p>
+
+                    <pre><code>const canvas =
+    document.getElementById('canvas');
+
+const context =
+    canvas.getContext('2d');
+
+context.fillRect(
+    20,
+    20,
+    150,
+    100
+);</code></pre>
+
+                    <h3>WebGL</h3>
+
+                    <p>
+                        WebGL provides lower-level access to hardware-accelerated
+                        graphics in the browser. It can be used to create interactive
+                        2D and 3D scenes.
+                    </p>
+
+                    <pre><code>const canvas =
+    document.getElementById('canvas');
+
+const gl =
+    canvas.getContext('webgl');
+
+if (!gl) {
+    console.log(
+        'WebGL is not supported.'
+    );
+}</code></pre>
+
+                    <h3>Preloading</h3>
+
+                    <p>
+                        Preloading tells the browser that a resource will be needed soon.
+                        This allows important files to begin downloading before they are
+                        requested later in the page.
+                    </p>
+
+                    <pre><code>&lt;link
+    rel="preload"
+    href="video.mp4"
+    as="video"
+    type="video/mp4"
+&gt;</code></pre>
+
+                    <h3>Accessibility</h3>
+
+                    <p>
+                        Accessible multimedia should include alternatives for users who
+                        cannot hear or see the original media. Captions, transcripts,
+                        descriptive text, and meaningful alt attributes make content
+                        available to more users.
+                    </p>
+
+                    <pre><code>&lt;video controls&gt;
+
+    &lt;source
+        src="video.mp4"
+        type="video/mp4"
+    &gt;
+
+    &lt;track
+        kind="captions"
+        src="captions.vtt"
+        srclang="en"
+        label="English"
+        default
+    &gt;
+
+&lt;/video&gt;</code></pre>
+
+                </div>
+            </section>
+
+        </main>
+
+        <aside>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+                        target="_blank"
+                    >
+                        HTML Table API Docs
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+                        target="_blank"
+                    >
+                        HTML Form API Docs
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding"
+                        target="_blank"
+                    >
+                        HTML Multimedia Guide
+                    </a>
+                </li>
+            </ul>
+
+        </aside>
+
+        <footer>
+            <p>
+                Web Development Cookbook. Made with ❤️ at the Atlas School.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

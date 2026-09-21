@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Development Cookbook - Guides</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Web Development Cookbook</h1>
+
+            <div class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="guides.html">Guides</a>
+            </div>
+        </header>
+
+
+        <nav class="contents-nav">
+            <h3>Contents</h3>
+
+            <ul>
+                <li>
+                    <a href="#dataTables">
+                        Data Tables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#complexForms">
+                        Complex Forms
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#multimedia">
+                        Multimedia
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <main>
+
+            <!-- DATA TABLES -->
+            <section id="dataTables">
+
+                <div class="section-content">
+
+                    <h2>
+                        Data Tables: Implementing Sorting,
+                        Filtering, and Pagination
+                    </h2>
+
+                    <p>
+                        Data tables help organize large amounts of information into rows and
+                        columns so users can quickly compare values. Adding sorting,
+                        filtering, and pagination makes a table easier to use when the
+                        amount of data grows.
+                    </p>
+
+
+                    <h3>Demo: Interactive Data Table</h3>
+
+                    <input
+                        type="text"
+                        id="filterInput"
+                        placeholder="Filter table..."
+                        aria-label="Filter table"
+                    >
+
+
+                    <div class="table-container">
+
+                        <table id="demoTable">
+
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>City</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Alice</td>
+                                    <td>25</td>
+                                    <td>New York</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Bob</td>
+                                    <td>30</td>
+                                    <td>London</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Charlie</td>
+                                    <td>35</td>
+                                    <td>Paris</td>
+                                </tr>
+
+                                <tr>
+                                    <td>David</td>
+                                    <td>28</td>
+                                    <td>Tokyo</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Eva</td>
+                                    <td>22</td>
+                                    <td>Berlin</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="pagination-controls">
+
+                        <button
+                            id="prevPage"
+                            type="button"
+                        >
+                            Previous
+                        </button>
+
+                        <button
+                            id="nextPage"
+                            type="button"
+                        >
+                            Next
+                        </button>
+
+                    </div>
+
+
+                    <h3>Step-by-Step Instructions:</h3>
+
+                    <ol>
+
+                        <li>
+                            <strong>
+                                Set up your HTML:
+                            </strong>
+
+                            <p>
+                                Create a table with headers and rows. Add an input for
+                                filtering and buttons for pagination.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Implement Sorting:
+                            </strong>
+
+                            <p>
+                                Add click listeners to the table headers. The JavaScript
+                                compares values in the selected column and reorganizes
+                                the rows.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Add Filtering:
+                            </strong>
+
+                            <p>
+                                Listen for input in the filter box. Rows that do not
+                                contain the entered text are removed from the visible
+                                results.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Create Pagination:
+                            </strong>
+
+                            <p>
+                                Divide the filtered rows into smaller groups. Previous
+                                and Next buttons allow users to move between those pages.
+                            </p>
+                        </li>
+
+                    </ol>
+
+
+                    <h3>Code Explanation:</h3>
+
+                    <button
+                        class="show-code-button"
+                        data-code="guideDataTable"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
+
+
+                    <p>
+                        The table code first collects all table rows into an array.
+                        Filtering searches the text of each row, while pagination only
+                        displays a small portion of the matching rows at one time.
+                        Header click events can also sort the array before the rows are
+                        displayed again.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLEX FORMS -->
+            <section id="complexForms">
+
+                <div class="section-content">
+
+                    <h2>
+                        Complex Forms: Implementing Form Validation
+                    </h2>
+
+                    <p>
+                        Complex forms collect several pieces of user information and
+                        often need rules to make sure the information is usable.
+                        Validation checks values before the data is submitted and gives
+                        users feedback when something needs to be corrected.
+                    </p>
+
+
+                    <h3>
+                        Demo: Validated Registration Form
+                    </h3>
+
+
+                    <form id="demoForm">
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email:
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                required
+                            >
+
+                            <span
+                                id="emailError"
+                                class="error"
+                            ></span>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password:
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                required
+                            >
+
+                            <span
+                                id="passwordError"
+                                class="error"
+                            ></span>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number:
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="123-456-7890"
+                            >
+
+                            <span
+                                id="phoneError"
+                                class="error"
+                            ></span>
+
+                        </div>
+
+
+                        <button type="submit">
+                            Submit
+                        </button>
+
+                    </form>
+
+
+                    <h3>Step-by-Step Instructions:</h3>
+
+                    <ol>
+
+                        <li>
+                            <strong>
+                                Create your HTML form:
+                            </strong>
+
+                            <p>
+                                Add fields for an email address, password, and phone
+                                number. Each field also receives a span where an error
+                                message can be displayed.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Define validation rules:
+                            </strong>
+
+                            <p>
+                                Regular expressions define the pattern that valid input
+                                should follow. HTML's required attribute also prevents
+                                important fields from being left empty.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Add event listeners:
+                            </strong>
+
+                            <p>
+                                Input listeners run validation while the user types.
+                                A submit listener performs one final check before the
+                                form is accepted.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Implement validation logic:
+                            </strong>
+
+                            <p>
+                                Each validation function tests the input and places an
+                                error message in its related span when the value is
+                                invalid.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Handle form submission:
+                            </strong>
+
+                            <p>
+                                The submit event is prevented when the values do not
+                                meet the validation rules. Valid input produces a
+                                successful demo message.
+                            </p>
+                        </li>
+
+                    </ol>
+
+
+                    <h3>Code Explanation:</h3>
+
+                    <button
+                        class="show-code-button"
+                        data-code="guideFormValidation"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
+
+
+                    <p>
+                        Regular expressions check whether each value follows the expected
+                        format. Separate validation functions make the code easier to
+                        understand, and the submit handler checks all fields together
+                        before treating the form as successful.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- MULTIMEDIA -->
+            <section id="multimedia">
+
+                <div class="section-content">
+
+                    <h2>
+                        Multimedia: Implementing Adaptive Streaming using HLS
+                    </h2>
+
+                    <p>
+                        Adaptive streaming allows a video player to change video quality
+                        depending on the user's connection speed. HLS divides video into
+                        smaller segments and provides a playlist that the player can use
+                        to select an appropriate stream.
+                    </p>
+
+
+                    <h3>Demo: HLS Video Player</h3>
+
+                    <video
+                        id="demoVideo"
+                        controls
+                    >
+                        Your browser does not support HTML video.
+                    </video>
+
+
+                    <h3>Step-by-Step Instructions:</h3>
+
+                    <ol>
+
+                        <li>
+                            <strong>
+                                Set up your HTML:
+                            </strong>
+
+                            <p>
+                                Add a video element with controls so the browser provides
+                                play, pause, volume, and timeline controls.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Include the HLS.js library:
+                            </strong>
+
+                            <p>
+                                Add the HLS.js library before the application's own
+                                JavaScript file so the Hls object is available when the
+                                script runs.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Initialize HLS:
+                            </strong>
+
+                            <p>
+                                Check whether HLS.js is supported. If it is, create an
+                                HLS object and attach it to the video element.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Load the video source:
+                            </strong>
+
+                            <p>
+                                Pass an .m3u8 playlist to the HLS object. Browsers with
+                                native HLS support can receive the playlist directly.
+                            </p>
+                        </li>
+
+
+                        <li>
+                            <strong>
+                                Handle errors:
+                            </strong>
+
+                            <p>
+                                Listen for network and media errors. HLS.js can attempt
+                                recovery for some failures instead of immediately ending
+                                playback.
+                            </p>
+                        </li>
+
+                    </ol>
+
+
+                    <h3>Code Explanation:</h3>
+
+                    <button
+                        class="show-code-button"
+                        data-code="guideHlsStreaming"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
+
+
+                    <p>
+                        HLS.js loads the streaming playlist and connects it to the HTML
+                        video element. The fallback checks whether the browser supports
+                        HLS natively, which allows compatible browsers to use the
+                        playlist without HLS.js.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <aside>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        HTML Table API Docs
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        HTML Form API Docs
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        HTML Multimedia Guide
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <footer>
+
+            <p>
+                Web Development Cookbook. Made with ❤️ at the Atlas School.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- CODE MODAL -->
+    <div
+        id="codeModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+                    Code Example
+                </h2>
+
+                <button
+                    id="closeModal"
+                    class="close-modal-button"
+                    type="button"
+                    aria-label="Close code example"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+
+            <div class="modal-code-container">
+
+                <pre><code id="modalCode"></code></pre>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <span
+                    id="copyFeedback"
+                    class="copy-feedback"
+                    aria-live="polite"
+                ></span>
+
+                <button
+                    id="copyCode"
+                    class="copy-code-button"
+                    type="button"
+                >
+                    Copy Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/hls.js@latest"
+    ></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
