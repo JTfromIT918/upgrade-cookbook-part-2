@@ -64,24 +64,13 @@
 
                     <h3>Example:</h3>
 
-                    <pre><code>&lt;body&gt;
-
-    &lt;header&gt;
-        &lt;h1&gt;Welcome to My Web House&lt;/h1&gt;
-    &lt;/header&gt;
-
-    &lt;main&gt;
-        &lt;p&gt;This is where the main content goes.&lt;/p&gt;
-    &lt;/main&gt;
-
-    &lt;footer&gt;
-        &lt;p&gt;
-            © &lt;span id="currentYear"&gt;&lt;/span&gt;
-            My Web House
-        &lt;/p&gt;
-    &lt;/footer&gt;
-
-&lt;/body&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="htmlStructure"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <p>
                         The example divides the page into a header, main area, and footer.
@@ -105,25 +94,13 @@
 
                     <h3>Example:</h3>
 
-                    <pre><code>body {
-    font-family: Arial, sans-serif;
-}
-
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-}
-
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #f8f9fa;
-    padding: 10px;
-    text-align: center;
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="cssStyling"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <p>
                         Each CSS rule selects part of the HTML and applies presentation
@@ -147,17 +124,13 @@ footer {
 
                     <h3>Example:</h3>
 
-                    <pre><code>function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-}
-
-const themeButton =
-    document.getElementById('themeButton');
-
-themeButton.addEventListener(
-    'click',
-    toggleTheme
-);</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="javascriptToggle"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <p>
                         The function toggles a CSS class on the body element. An event
@@ -189,15 +162,13 @@ themeButton.addEventListener(
                         on phones and tablets without removing data.
                     </p>
 
-                    <pre><code>.table-container {
-    width: 100%;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="responsiveTable"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Sorting</h3>
 
@@ -207,24 +178,13 @@ table {
                         the row array alphabetically or numerically.
                     </p>
 
-                    <pre><code>tableHeaders.forEach((header, columnIndex) =&gt; {
-
-    header.addEventListener('click', () =&gt; {
-
-        rows.sort((rowA, rowB) =&gt; {
-
-            const valueA =
-                rowA.children[columnIndex].textContent;
-
-            const valueB =
-                rowB.children[columnIndex].textContent;
-
-            return valueA.localeCompare(valueB);
-        });
-
-    });
-
-});</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="tableSorting"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Filtering</h3>
 
@@ -234,24 +194,13 @@ table {
                         makes the search case-insensitive.
                     </p>
 
-                    <pre><code>filterInput.addEventListener('input', () =&gt; {
-
-    const filterText =
-        filterInput.value.toLowerCase();
-
-    rows.forEach((row) =&gt; {
-
-        const rowText =
-            row.textContent.toLowerCase();
-
-        row.style.display =
-            rowText.includes(filterText)
-                ? ''
-                : 'none';
-
-    });
-
-});</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="tableFiltering"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Pagination</h3>
 
@@ -261,28 +210,13 @@ table {
                         excessively long and makes the data easier to scan.
                     </p>
 
-                    <pre><code>const rowsPerPage = 5;
-let currentPage = 1;
-
-function displayPage() {
-
-    const startIndex =
-        (currentPage - 1) * rowsPerPage;
-
-    const endIndex =
-        startIndex + rowsPerPage;
-
-    rows.forEach((row) =&gt; {
-        row.style.display = 'none';
-    });
-
-    rows
-        .slice(startIndex, endIndex)
-        .forEach((row) =&gt; {
-            row.style.display = '';
-        });
-
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="tablePagination"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Editing</h3>
 
@@ -292,9 +226,13 @@ function displayPage() {
                         make an individual cell editable from the browser.
                     </p>
 
-                    <pre><code>&lt;td contenteditable="true"&gt;
-    Alice
-&lt;/td&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="tableEditing"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Accessibility</h3>
 
@@ -304,20 +242,13 @@ function displayPage() {
                         explain how header cells relate to the data.
                     </p>
 
-                    <pre><code>&lt;table&gt;
-
-    &lt;caption&gt;
-        Employee Information
-    &lt;/caption&gt;
-
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th scope="col"&gt;Name&lt;/th&gt;
-            &lt;th scope="col"&gt;Age&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-
-&lt;/table&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="tableAccessibility"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                 </div>
             </section>
@@ -343,15 +274,13 @@ function displayPage() {
                         add more detailed rules and custom error messages.
                     </p>
 
-                    <pre><code>const emailPattern =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if (!emailPattern.test(emailInput.value)) {
-
-    emailError.textContent =
-        'Enter a valid email address.';
-
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="formValidation"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Multi-Step</h3>
 
@@ -361,20 +290,13 @@ if (!emailPattern.test(emailInput.value)) {
                         when the user clicks a navigation button.
                     </p>
 
-                    <pre><code>let currentStep = 0;
-
-function showStep(step) {
-
-    const steps =
-        document.querySelectorAll('.form-step');
-
-    steps.forEach((item) =&gt; {
-        item.hidden = true;
-    });
-
-    steps[step].hidden = false;
-
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="multiStepForm"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Dynamic Form Fields</h3>
 
@@ -384,13 +306,13 @@ function showStep(step) {
                         it to the form when needed.
                     </p>
 
-                    <pre><code>const newInput =
-    document.createElement('input');
-
-newInput.type = 'text';
-newInput.name = 'additionalItem';
-
-form.appendChild(newInput);</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="dynamicFields"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Autocomplete</h3>
 
@@ -400,17 +322,13 @@ form.appendChild(newInput);</code></pre>
                         options without requiring a large amount of JavaScript.
                     </p>
 
-                    <pre><code>&lt;input
-    type="text"
-    list="cities"
-    name="city"
-&gt;
-
-&lt;datalist id="cities"&gt;
-    &lt;option value="New York"&gt;
-    &lt;option value="London"&gt;
-    &lt;option value="Paris"&gt;
-&lt;/datalist&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="autocomplete"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>File Upload/Preview</h3>
 
@@ -420,18 +338,13 @@ form.appendChild(newInput);</code></pre>
                         previewed before it is uploaded.
                     </p>
 
-                    <pre><code>fileInput.addEventListener('change', () =&gt; {
-
-    const file = fileInput.files[0];
-
-    if (file) {
-
-        preview.src =
-            URL.createObjectURL(file);
-
-    }
-
-});</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="filePreview"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                 </div>
             </section>
@@ -457,31 +370,13 @@ form.appendChild(newInput);</code></pre>
                         different images based on the user's screen.
                     </p>
 
-                    <pre><code>&lt;video controls&gt;
-    &lt;source
-        src="video.mp4"
-        type="video/mp4"
-    &gt;
-&lt;/video&gt;
-
-&lt;audio controls&gt;
-    &lt;source
-        src="audio.mp3"
-        type="audio/mpeg"
-    &gt;
-&lt;/audio&gt;
-
-&lt;picture&gt;
-    &lt;source
-        media="(min-width: 800px)"
-        srcset="large.jpg"
-    &gt;
-
-    &lt;img
-        src="small.jpg"
-        alt="Example"
-    &gt;
-&lt;/picture&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="multimediaElements"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>JavaScript Interaction</h3>
 
@@ -491,16 +386,13 @@ form.appendChild(newInput);</code></pre>
                         video element.
                     </p>
 
-                    <pre><code>const video =
-    document.getElementById('video');
-
-playButton.addEventListener('click', () =&gt; {
-    video.play();
-});
-
-pauseButton.addEventListener('click', () =&gt; {
-    video.pause();
-});</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="mediaInteraction"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Custom Video Controls</h3>
 
@@ -510,18 +402,13 @@ pauseButton.addEventListener('click', () =&gt; {
                         play, pause, and volume adjustment.
                     </p>
 
-                    <pre><code>playPauseButton.addEventListener(
-    'click',
-    () =&gt; {
-
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
-
-    }
-);</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="customVideoControls"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Adaptive Streaming</h3>
 
@@ -531,25 +418,13 @@ pauseButton.addEventListener('click', () =&gt; {
                         that support Media Source Extensions.
                     </p>
 
-                    <pre><code>if (Hls.isSupported()) {
-
-    const hls = new Hls();
-
-    hls.loadSource(
-        'stream.m3u8'
-    );
-
-    hls.attachMedia(video);
-
-} else if (
-    video.canPlayType(
-        'application/vnd.apple.mpegurl'
-    )
-) {
-
-    video.src = 'stream.m3u8';
-
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="adaptiveStreaming"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Audio Visualizations</h3>
 
@@ -559,18 +434,13 @@ pauseButton.addEventListener('click', () =&gt; {
                         effects that react to music or other audio.
                     </p>
 
-                    <pre><code>const audioContext =
-    new AudioContext();
-
-const analyser =
-    audioContext.createAnalyser();
-
-const data =
-    new Uint8Array(
-        analyser.frequencyBinCount
-    );
-
-analyser.getByteFrequencyData(data);</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="audioVisualization"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Responsive Images</h3>
 
@@ -580,19 +450,13 @@ analyser.getByteFrequencyData(data);</code></pre>
                         attributes provide several image choices.
                     </p>
 
-                    <pre><code>&lt;img
-    src="small.jpg"
-    srcset="
-        small.jpg 480w,
-        medium.jpg 800w,
-        large.jpg 1200w
-    "
-    sizes="
-        (max-width: 600px) 480px,
-        800px
-    "
-    alt="Responsive example"
-&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="responsiveImages"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Lazy Loading</h3>
 
@@ -602,11 +466,13 @@ analyser.getByteFrequencyData(data);</code></pre>
                         performance.
                     </p>
 
-                    <pre><code>&lt;img
-    src="photo.jpg"
-    loading="lazy"
-    alt="Example photograph"
-&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="lazyLoading"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Canvas</h3>
 
@@ -616,18 +482,13 @@ analyser.getByteFrequencyData(data);</code></pre>
                         data visualizations.
                     </p>
 
-                    <pre><code>const canvas =
-    document.getElementById('canvas');
-
-const context =
-    canvas.getContext('2d');
-
-context.fillRect(
-    20,
-    20,
-    150,
-    100
-);</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="canvasExample"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>WebGL</h3>
 
@@ -637,17 +498,13 @@ context.fillRect(
                         2D and 3D scenes.
                     </p>
 
-                    <pre><code>const canvas =
-    document.getElementById('canvas');
-
-const gl =
-    canvas.getContext('webgl');
-
-if (!gl) {
-    console.log(
-        'WebGL is not supported.'
-    );
-}</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="webGLExample"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Preloading</h3>
 
@@ -657,12 +514,13 @@ if (!gl) {
                         requested later in the page.
                     </p>
 
-                    <pre><code>&lt;link
-    rel="preload"
-    href="video.mp4"
-    as="video"
-    type="video/mp4"
-&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="preloading"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                     <h3>Accessibility</h3>
 
@@ -673,22 +531,13 @@ if (!gl) {
                         available to more users.
                     </p>
 
-                    <pre><code>&lt;video controls&gt;
-
-    &lt;source
-        src="video.mp4"
-        type="video/mp4"
-    &gt;
-
-    &lt;track
-        kind="captions"
-        src="captions.vtt"
-        srclang="en"
-        label="English"
-        default
-    &gt;
-
-&lt;/video&gt;</code></pre>
+                    <button
+                        class="show-code-button"
+                        data-code="mediaAccessibility"
+                        type="button"
+                    >
+                        Show Code
+                    </button>
 
                 </div>
             </section>
@@ -704,6 +553,7 @@ if (!gl) {
                     <a
                         href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         HTML Table API Docs
                     </a>
@@ -713,6 +563,7 @@ if (!gl) {
                     <a
                         href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         HTML Form API Docs
                     </a>
@@ -722,6 +573,7 @@ if (!gl) {
                     <a
                         href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         HTML Multimedia Guide
                     </a>
@@ -737,6 +589,67 @@ if (!gl) {
         </footer>
 
     </div>
+
+    <!-- CODE MODAL -->
+    <div
+        id="codeModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+                    Code Example
+                </h2>
+
+                <button
+                    id="closeModal"
+                    class="close-modal-button"
+                    type="button"
+                    aria-label="Close code example"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+            <div class="modal-code-container">
+
+                <pre><code id="modalCode"></code></pre>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <span
+                    id="copyFeedback"
+                    class="copy-feedback"
+                    aria-live="polite"
+                ></span>
+
+                <button
+                    id="copyCode"
+                    class="copy-code-button"
+                    type="button"
+                >
+                    Copy Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 
